@@ -1,6 +1,6 @@
 {
   "name": "aba-parser",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Parse ABA (Australian Bankers Association or Cemtext) file format",
   "main": "dist/lib/index.js",
   "files": [
