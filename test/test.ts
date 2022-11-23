@@ -43,10 +43,10 @@ test("index tests", (t) => {
         });
         assert.deepStrictEqual(result[0].footer, {
             bsb: "999999",
-            batchNetTotal: 31292.47,
-            batchCreditTotal: 31292.47,
-            batchDebitTotal: 0,
-            numberRecords: 4,
+            netTotal: 31292.47,
+            creditTotal: 31292.47,
+            debitTotal: 0,
+            numberOfTransactions: 4,
         });
     });
 });

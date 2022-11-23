@@ -41,10 +41,10 @@ export class ABA {
     parseFinalTotalRecord(line: string) {
         return {
             bsb: line.substring(1, 8).replace("-", ""), // must be 999999
-            batchNetTotal: centsToDollars(line.substring(20, 30)),
-            batchCreditTotal: centsToDollars(line.substring(30, 40)),
-            batchDebitTotal: centsToDollars(line.substring(40, 50)),
-            numberRecords: stringToInt(line.substring(74, 80)),
+            netTotal: centsToDollars(line.substring(20, 30)),
+            creditTotal: centsToDollars(line.substring(30, 40)),
+            debitTotal: centsToDollars(line.substring(40, 50)),
+            numberOfTransactions: stringToInt(line.substring(74, 80)),
         };
     }
 
@@ -111,10 +111,10 @@ interface Transaction {
 
 interface Footer {
     bsb: string; // must be 999999
-    batchNetTotal: number;
-    batchCreditTotal: number;
-    batchDebitTotal: number;
-    numberRecords: number;
+    netTotal: number;
+    creditTotal: number;
+    debitTotal: number;
+    numberOfTransactions: number;
 }
 
 interface Batch {
