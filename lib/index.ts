@@ -24,7 +24,7 @@ const defaultAbaSchemas = {
             { name: "amount", boundaries: [20, 30], type: "money" },
             { name: "accountTitle", boundaries: [30, 62], type: "string" },
             { name: "reference", boundaries: [62, 80], type: "string" },
-            { name: "traceBSB", boundaries: [80, 87], type: "bsb" },
+            { name: "traceBsb", boundaries: [80, 87], type: "bsb" },
             { name: "traceAccount", boundaries: [87, 96], type: "string" },
             { name: "remitter", boundaries: [96, 112], type: "string" },
             { name: "taxAmount", boundaries: [112, 120], type: "money" },
