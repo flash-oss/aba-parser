@@ -119,7 +119,7 @@ test("index tests", async (t) => {
             );
         }
 
-        const badDebitTotal = abaExample.replaceAll("0000000000", "0000000001");
+        const badDebitTotal = abaExample.replace("0000000000", "0000000001");
 
         try {
             aba.parse(badDebitTotal);
@@ -165,7 +165,6 @@ test("index tests", async (t) => {
         const aba = new ABA({ schemas: customSchemas });
 
         const result = aba.parse(customAbaFile);
-        console.log(result[0].transactions[0].customField);
         assert.strictEqual(result[0].transactions[0].customString, "customString");
         assert.strictEqual(result[0].transactions[0].customInt, 12345);
         assert.strictEqual(result[0].transactions[0].customBsb, "999999");

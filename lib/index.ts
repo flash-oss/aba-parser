@@ -83,7 +83,7 @@ export class ABA {
 
     /**
      * Specify custom ABA schemas and automatic validation.
-     * Your batch must comply with the basic structural requirements to use validation; for more information, check the README or validateBatch method.     * @param options {validate: boolean}
+     * Your batch must comply with the basic structural requirements to use validation; for more information, check the README or validateBatch method.
      * @param options {validate: boolean}
      * @param options {schemas: {customSchemas}}
      */
