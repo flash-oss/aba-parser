@@ -36,7 +36,7 @@ test("index tests", async (t) => {
             amount: 12.34,
             accountTitle: "S R SMITH",
             reference: "TEST BATCH",
-            traceBSB: "062000",
+            traceBsb: "062000",
             traceAccount: "12223123",
             remitter: "MY ACCOUNT",
             taxAmount: 12,
@@ -149,7 +149,7 @@ test("index tests", async (t) => {
                     { name: "amount", boundaries: [20, 30], type: "money" },
                     { name: "accountTitle", boundaries: [30, 62], type: "string" },
                     { name: "reference", boundaries: [62, 80], type: "string" },
-                    { name: "traceBSB", boundaries: [80, 87], type: "bsb" },
+                    { name: "traceBsb", boundaries: [80, 87], type: "bsb" },
                     { name: "traceAccount", boundaries: [87, 96], type: "string" },
                     { name: "remitter", boundaries: [96, 112], type: "string" },
                     { name: "taxAmount", boundaries: [112, 120], type: "string" },
@@ -164,11 +164,11 @@ test("index tests", async (t) => {
 
         const aba = new ABA({ schemas: customSchemas });
 
-        const result = aba.parse(customAbaFile);
-        assert.strictEqual(result[0].transactions[0].customString, "customString");
-        assert.strictEqual(result[0].transactions[0].customInt, 12345);
-        assert.strictEqual(result[0].transactions[0].customBsb, "999999");
-        assert.strictEqual(result[0].transactions[0].custom, " 01-2  ");
-        assert.strictEqual(result[0].transactions[0].customMoney, 120.01);
+        const batches = aba.parse(customAbaFile);
+        assert.strictEqual(batches[0].transactions[0].customString, "customString");
+        assert.strictEqual(batches[0].transactions[0].customInt, 12345);
+        assert.strictEqual(batches[0].transactions[0].customBsb, "999999");
+        assert.strictEqual(batches[0].transactions[0].custom, " 01-2  ");
+        assert.strictEqual(batches[0].transactions[0].customMoney, 120.01);
     });
 });
