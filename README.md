@@ -47,7 +47,7 @@ const minimalBatchForValidation = {
 If you want to throw an error on an invalid batch, you need to pass options `options: {validation: true}` into the ABA
 constructor for automatic batch validation.
 
-Otherwise, you can use the manual validation method ```aba.validateBatch(batch)``` see examples below
+Otherwise, you can use the manual validation method `aba.validateBatch(batch)` see examples below
 
 ### Automatic batch validation
 
@@ -95,13 +95,13 @@ Descriptive Record -> header; Detail Record -> transaction; File Total Record ->
 
 #### Possible types:
 
-`string` – remove all spaces and return the string
+`string` – trim spaces and return the string
 
 `money` - convert cents to dollars and return the number.
 
-`integer` - trim all `0` in the start and return number
+`integer` - trim all `0` in the start and return the number
 
-`bsb` - remove "-" and return string
+`bsb` - remove "-" and return the string
 
 `""` – retrieve the original string
 
@@ -227,7 +227,6 @@ for (const { header, transactions, footer } of batches) {
 }
 ```
 
-
 ## Reference information and links
 
 ### Sibling modules
@@ -235,6 +234,7 @@ for (const { header, transactions, footer } of batches) {
 [aba-generator](https://github.com/flash-oss/aba-generator) - if you need to generate an ABA string, you can use this module.
 
 ### ABA file specification
+
 1. http://ddkonline.blogspot.com/2009/01/aba-bank-payment-file-format-australian.html
 2. https://www.cemtexaba.com/aba-format/cemtex-aba-file-format-details
 3. https://github.com/mjec/aba/blob/master/sample-with-comments.aba
