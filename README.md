@@ -125,9 +125,9 @@ const aba = new ABA({ schemas: customSchmas });
 ### Custom schema use example
 
 ```typescript
-const customSchemas = {
+const customSchemas: RecordSchema = {
   "5": {
-    recordType: "transaction" as RecordType,
+    recordType: "transaction",
     fields: [
       { name: "transactionType", boundaries: [0, 1], type: "string" },
       { name: "bsb", boundaries: [1, 8], type: "bsb" },
@@ -144,7 +144,7 @@ const customSchemas = {
     ],
   },
   "6": {
-    recordType: "header" as RecordType,
+    recordType: "header",
     fields: [
       { name: "bsb", boundaries: [1, 8], type: "bsb" },
       { name: "account", boundaries: [8, 17], type: "string" },
