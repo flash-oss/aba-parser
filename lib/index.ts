@@ -192,16 +192,16 @@ export class ABA {
     }
 }
 
-type RecordTypeNumber = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+export type RecordTypeNumber = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
-interface ParserOptions {
+export interface ParserOptions {
     validation?: boolean;
     schemas?: { [key in RecordTypeNumber]?: RecordSchema };
 }
 
 export type RecordType = "header" | "transaction" | "footer";
 
-interface RecordSchema {
+export interface RecordSchema {
     recordType: RecordType;
     fields: { name: string; boundaries: number[]; type: string }[];
 }
