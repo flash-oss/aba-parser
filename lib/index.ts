@@ -218,12 +218,13 @@ interface Header {
     date?: Date | string | number; // Date to be processed.
     time?: Date | string | number; // Time to be processed. Should be ignored according to the specs.
     // for custom fields
-    [x: string]: string | number | Date;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [x: string]: any;
 }
 
 // Direct Credit / Direct Debit transaction
 interface Transaction {
-    transactionType?: string;
+    transactionType?: RecordTypeNumber;
     bsb?: string; // The third party account BSB
     tax?: "N" | "W" | "X" | "Y" | " " | ""; // see README for more info
     transactionCode?: number; // Debit or credit... see README for more info
@@ -236,7 +237,8 @@ interface Transaction {
     remitter?: string; // The transacting company name.
     taxAmount?: number;
     // for custom fields
-    [x: string]: string | number | Date;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [x: string]: any;
 }
 
 // File Total Record
@@ -248,7 +250,8 @@ interface Footer {
     debitTotal?: number;
     numberOfTransactions?: number;
     // for custom fields
-    [x: string]: string | number | Date;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [x: string]: any;
 }
 
 interface Batch {
