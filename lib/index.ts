@@ -147,7 +147,7 @@ export class ABA {
     parse(content: string): Batch[] {
         // split ABA into lines
         const batches = [];
-        const lines = content.split(/\r?\n/);
+        const lines = content.split(/\r\n|\r|\n/);
         let header;
         let transactions = [];
 

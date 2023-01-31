@@ -63,6 +63,21 @@ test("index tests", async (t) => {
         }
     });
 
+    await t.test("should parse CR linebreaks file correctly", function () {
+        const sourceFile = fs.readFileSync("./test/ABA-files/aba_second.file").toString();
+
+        const aba = new ABA();
+
+        const batches = aba.parse(sourceFile);
+        assert.strictEqual(batches.length, 2, "Two batches")
+        assert.strictEqual(batches[0].transactions.length, 6, "6 transaction in 1st batch")
+        assert.strictEqual(batches[1].transactions.length, 4, "4 transaction in 2nd batch")
+        for (const batch of batches) {
+            const validationResult = aba.validateBatch(batch);
+            assert.strictEqual(validationResult.success, true);
+        }
+    });
+
     await t.test("should open file, read it and don't throw error", function () {
         const sourceFile = fs.readFileSync("./test/ABA-files/aba_test.file", "utf8");
 
